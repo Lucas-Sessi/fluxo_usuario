@@ -1,0 +1,35 @@
+<form class="flex flex-column align-items-center justify-content-center min-h-screen">
+    <div class="text-center card flex justify-content-center">
+        <p-card header="Login" subheader="Faça login para acessar a aplicação" [style]="{ width: '360px' }">
+            <ng-template pTemplate="header">
+            </ng-template>
+            <div class="text-left">
+                <div class="flex flex-column gap-2">
+                    <label for="username">Username</label>
+                    <input 
+                    pInputText 
+                    id="username" 
+                    aria-describedby="username-help" 
+                    [(ngModel)]="username"
+                    name="username"
+                    />
+                </div>
+                <div class="flex flex-column gap-2">
+                    <label for="password">Password</label>
+                    <input 
+                    pInputText 
+                    id="password" 
+                    aria-describedby="password-help" 
+                    [(ngModel)]="password"
+                    name="password"
+                    />
+                </div>
+            </div>
+            <ng-template pTemplate="footer">
+                <div class="flex gap-3 mt-1">
+                    <p-button label="Entrar" class="w-full" styleClass="w-full" />
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
+</form>

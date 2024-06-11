@@ -37,7 +37,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/primeflex/primeflex.css"
             ],
             "scripts": []
           },
@@ -102,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "b766613e-b45a-41cd-8319-c7a9d58d0747"
   }
 }

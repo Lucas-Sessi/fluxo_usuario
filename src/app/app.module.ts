@@ -8,12 +8,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { HeaderComponent } from './components/header/header.component';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { CardModule } from 'primeng/card';
     InputTextModule,
     ButtonModule,
     CardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TabMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { LayoutDefaultComponent } from './layout-default/layout-default.component';
-import { authGuard } from './guards/auth.guard';
+import { authGuard } from './guards/login.guard';
 import { AgendaComponent } from './components/agenda/agenda.component';
 import { UsersComponent } from './components/users/users.component';
+import { rolesGuard } from './guards/roles.guard';
+import { functionalitiesOfSystem } from './guards/module-of-system';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: functionalitiesOfSystem.login,
     component: LoginComponent
   },
   {
@@ -18,37 +20,35 @@ const routes: Routes = [
     canActivate: [authGuard],
     children: [
       {
-        path: 'home',
+        path: functionalitiesOfSystem.home,
         component: HomeComponent
       },
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: functionalitiesOfSystem.home,
         pathMatch: 'full',
       },
       {
-        path: 'agenda',
-        component: AgendaComponent,
-        canActivate: [authGuard],
+        path: functionalitiesOfSystem.usuario.path,
+        component: UsersComponent,
+        canActivate: [rolesGuard],
         data: {
-          idComponente: 2,
-          acesso: 'admin'
+          idComponente: functionalitiesOfSystem.usuario.id
         }
       },
       {
-        path: 'users',
-        component: UsersComponent,
-        canActivate: [authGuard],
+        path: functionalitiesOfSystem.agenda.path,
+        component: AgendaComponent,
+        canActivate: [rolesGuard],
         data: {
-          idComponente: 3,
-          acesso: 'admin'
+          idComponente: functionalitiesOfSystem.agenda.id
         }
       }
     ]
   },
   {
     path: '**',
-    redirectTo: 'login'
+    redirectTo: functionalitiesOfSystem.login
   }
 ];
 

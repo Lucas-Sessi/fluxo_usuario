@@ -12,12 +12,4 @@ export class LayoutDefaultComponent {
   isLoginPage(): boolean {
     return this.router.url === '/login';
   }
-
-  isValidUser(): boolean {
-    const user = sessionStorage.getItem('acessoUsuario');
-
-    console.log('aquiiiiiii =====>', user);
-
-    return true;
-  }
 }

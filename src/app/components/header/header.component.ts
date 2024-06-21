@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { AuthService } from '../../guards/auth-service';
+import { functionalitiesOfSystem } from '../../guards/module-of-system';
 
 
 @Component({
@@ -17,9 +17,23 @@ export class HeaderComponent implements OnInit {
     const userAuth = JSON.parse(localStorage.getItem('acessoUsuario') ?? '[]');
 
     const allFunctionalities = {
-      home: { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home'] },
-      agenda: { id: 2, label: 'Agenda', icon: 'pi pi-fw pi-video', routerLink: ['/agenda'] },
-      users: { id: 1, label: 'Cadastro de Usuários', icon: 'pi pi-fw pi-file', routerLink: ['/users'] }
+      home: {
+        label: 'Home',
+        icon: 'pi pi-fw pi-home',
+        routerLink: [functionalitiesOfSystem.home]
+      },
+      users: {
+        id: functionalitiesOfSystem.usuario.id,
+        label: 'Cadastro de Usuários',
+        icon: 'pi pi-fw pi-file',
+        routerLink: [functionalitiesOfSystem.usuario.path]
+      },
+      agenda: {
+        id: functionalitiesOfSystem.agenda.id,
+        label: 'Agenda',
+        icon: 'pi pi-fw pi-video',
+        routerLink: [functionalitiesOfSystem.agenda.path]
+      }
     };
 
     this.items = [

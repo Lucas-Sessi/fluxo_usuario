@@ -10,15 +10,27 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { HeaderComponent } from './components/header/header.component';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { HomeComponent } from './components/home/home.component';
+import { LayoutDefaultComponent } from './layout-default/layout-default.component';
+import { ToastModule } from 'primeng/toast';
+import { CommonModule } from '@angular/common';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { AgendaComponent } from './components/agenda/agenda.component';
+import { UsersComponent } from './components/users/users.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    LayoutDefaultComponent,
+    AgendaComponent,
+    UsersComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -26,9 +38,12 @@ import { TabMenuModule } from 'primeng/tabmenu';
     ButtonModule,
     CardModule,
     AppRoutingModule,
-    TabMenuModule
+    TabMenuModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi())
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
